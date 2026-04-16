@@ -1,0 +1,199 @@
+/*config padrão pagina  */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Para isso */
+body {
+  background-color: rgb(4, 10, 26);
+  color: white;
+}
+
+/* estrutura grid Pai */
+.container{
+    max-width: 100vw;
+    height: 100vh;
+    row-gap: 0px;
+    column-gap: 10px;
+    border: 1px solid red;
+    display: grid;
+    grid-template-columns: 290px 880px 350px;
+    grid-template-areas: 
+    'navegacao principal principal'
+    'navegacao principal principal'
+    ;
+}
+
+nav{ grid-area: navegacao;}
+main{ grid-area: principal;}
+.card{ grid-area: card;}
+
+
+
+/* estilo de navegação*/
+
+nav{
+    height: 100vh;
+    border: 1px solid blue;
+    border-right: 1px solid blue;
+    display:flex;
+    flex-direction: column;
+}
+
+nav h1{
+    text-align: center;
+    margin: 10px;
+}
+
+nav ul{
+    width:100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    list-style: none;
+    margin-top: 30px;
+    border: 1px solid green;
+
+}
+
+nav ul li{
+    border: 1px solid white;
+    margin-top: 3px;
+    width: 100%;
+    cursor: pointer;
+    display: flex;         /* Ajuda a alinhar ícone e texto */
+    align-items: center;   /* Centraliza verticalmente */
+    transition: 0.3s;      /* Deixa o efeito suave */
+}
+
+ ul li.baixo{
+    position: relative;
+    top: 350px;
+}
+ul li img{
+    width: 16px;
+    margin-left: 20px;
+    transition: 0.3s; 
+}
+nav ul li a{
+    text-decoration: none;
+    padding: 0;
+    margin: 15px;
+    transition: 0.3s; 
+    color: white;
+}
+
+/*efeito passando o mouse por cima */
+
+nav ul li:hover{
+   background-color: rgb(30, 51, 93);
+   border-right: 5px solid rgb(214, 19, 19);
+}
+
+nav ul li:hover{ 
+    background-color: rgb(30, 51, 93)
+}
+nav ul li:hover img{
+    background-color: rgb(30, 51, 93);
+}
+
+
+/* estrutura de conteudo principal*/
+
+main{
+    border: 1px solid rgb(229, 255, 0);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/*campo de pesquisa do conteudo*/
+.pesquisa{
+    border: 1px solid blue;
+    padding: 20px;
+    width: 100%;
+}
+
+main .pesquisa form{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+main .pesquisa form input{
+    padding: 10px;
+    padding-left: 50px;
+    width: 600px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    background-image: url('icones/zoom-out.png');
+    background-repeat: no-repeat;
+    background-position: left 10px center;
+     background-color: rgb(4, 10, 26);
+     color: white;
+}
+
+button{
+    padding: 10px 20px;
+    background-color: rgb(16, 107, 211);
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+/* cards do conteudo principal home */
+main .cardHome{
+    width: 100%;
+    /* flex: 1 faz ele ocupar todo o espaço que sobra no main */
+    flex: 1; 
+    
+    /* Importante: define que o que sobrar de altura vira scroll */
+    overflow-y: auto; 
+    overflow-x: hidden; /* Evita scroll lateral se não precisar */
+    
+    border: 1px solid violet;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Melhor que space-evenly para listas longas */
+    padding: 20px 0;
+}
+
+main .cardHome div{
+    flex-shrink: 0;/* Impede que o flexbox "esmague" a altura do card */
+    width: 900px;
+    height: 80px;
+    border: 1px solid red;
+}
+
+
+/* estilo do scroll */
+main .cardHome::-webkit-scrollbar{
+    background-color: rgba(10, 74, 146, 0.199);   /* Usei o azul do seu botão */
+    border-radius: 10px;                   /* Arredonda as pontas */
+    border: 2px solid rgb(18, 19, 21);      /* Cria uma borda da cor do fundo para parecer que a barra flutua */
+}
+
+main .cardHome::-webkit-scrollbar-thumb {
+    background-color: rgb(33, 50, 69);   /* Usei o azul do seu botão */
+    border-radius: 5px;                   /* Arredonda as pontas */
+    border: 2px solid rgb(4, 10, 26);      /* Cria uma borda da cor do fundo para parecer que a barra flutua */
+}
+
+
+/* */
+
+
+/* */
+
+
+
+/* */
+

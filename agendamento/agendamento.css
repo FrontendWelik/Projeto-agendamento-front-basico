@@ -1,0 +1,34 @@
+/*config padrão pagina  */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Para isso */
+body {
+  background-color: rgb(4, 10, 26);
+  color: white;
+}
+
+/* estrutura grid Pai */
+.container{
+    max-width: 200vh;
+    height: 99vh;
+    row-gap: 0px;
+    column-gap: 10px;
+    border: 1px solid red;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+    'navegacao principal card'
+    'navegacao principal card'
+    ;
+}
+
+nav{ grid-area: navegacao;}
+main{ grid-area: principal;}
+.card{ grid-area: card;}
+
+
+
