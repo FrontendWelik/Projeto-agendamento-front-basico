@@ -16,7 +16,7 @@
     <main class="principal">
         <div class="pesquisa">
             <form action="/search" method="GET">
-                <input type="text" name="q" placeholder="Pesquisar...">
+                <input type="text" id="inputPesquisar" placeholder="pesquise por numero ou nome ou data.." oninput="filtrarCards()">
                 <button type="submit">Buscar</button>
             </form>
         </div>
@@ -37,4 +37,5 @@
     
 </body>
 <script src="../navbar/navbar.js"></script>
+<script src="../script.js"></script>
 </html>

@@ -14,7 +14,7 @@ const navHTML = `
 
                 <li>
                     <img src="../icones/right-arrow.png" alt="">
-                    <a href="../fila/fila.html">Fila</a>
+                    <a href="../fila/fila.html">Fila de Agendados </a>
                 </li>
 
                 <li>
@@ -46,6 +46,8 @@ const navHTML = `
 
 `;
 document.getElementById('navbar').innerHTML = navHTML;
+
+
 
 // Seleciona todas as LIs dentro da navegação
 const menuItems = document.querySelectorAll('nav ul li');

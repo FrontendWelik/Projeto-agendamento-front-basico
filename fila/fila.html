@@ -15,19 +15,26 @@
 
     <main class="principal">
         <div class="pesquisa">
-            <form action="/search" method="GET">
-                <input type="text" name="q" placeholder="Pesquisar...">
+            <form action="/search" method="GET" onsubmit="event.preventDefault()">
+                 <input type="text" id="inputPesquisar" placeholder="pesquise por numero ou nome ou data.." oninput="filtrarCards()">
                 <button type="submit">Buscar</button>
             </form>
         </div>
-        <div>Titulo</div>
-        <div>Titulo</div>
+        
+
+         <!-- cards de fila de agendamento -->
+
+    <div class="main-card">
+
+    <div id="card" class="main-card"></div>
+
+
+
+
+
+
+         </div><!-- main card -->
     </main>
-
-    <div class="card">
-        <div>card</div>
-    </div>
-
 
     </section>
         
@@ -37,4 +44,5 @@
     
 </body>
 <script src="../navbar/navbar.js"></script>
+<script src="../script.js"></script>
 </html>

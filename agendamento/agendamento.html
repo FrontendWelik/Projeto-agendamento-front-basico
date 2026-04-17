@@ -14,21 +14,52 @@
        <div id="navbar"></div>
 
 
-    <main class="principal">
-        <div class="pesquisa">
-            <form action="/search" method="GET">
-                <input type="text" name="q" placeholder="Pesquisar...">
-                <button type="submit">Buscar</button>
-            </form>
-        </div>
-        <div>Titulo</div>
-        <div>Titulo</div>
-    </main>
+    <main class="principal"><!-- principal -->
+     
+        
 
-    <div class="card">
-        <div>card</div>
+<div class="formularioPai">
+  <h2>NOVO AGENDAMENTO</h2>
+  <form onsubmit="criarCard(event)">
+    <input type="text" placeholder="Nome do Cliente" id="nome">
+    <input type="text" placeholder="WhatsApp (DDD + Número)" id="whats">
+    
+    <div class="input-group">
+      <input type="date" id="data">
+      <input type="time" id="hora">
     </div>
 
+    <div class="input-group">
+      <input type="text" placeholder="Procedimento" class="servico" id="procedimento">
+      <input type="number" placeholder="R$50" class="preco" id="preco">
+    </div>
+
+    <button type="button" id="adicionar">+ ADICIONAR SERVIÇO</button>
+    <button type="submit" class="btn-agendar">AGENDAR</button>
+  </form>
+</div>
+
+    </main><!-- principal -->
+
+    <div class="card">
+           <div class="pesquisa"><!-- pesquisa -->
+            <form action="/search" method="GET" onsubmit="event.preventDefault()">
+                <input type="text" id="inputPesquisar" placeholder="pesquise por numero ou nome ou data.." oninput="filtrarCards()">
+                <button type="submit">Buscar</button>
+            </form>
+        </div><!-- pesquisa -->
+
+        <!--  divisão -->
+     
+        <div id="card" class="main-card"></div>
+    
+
+    
+          
+        </div><!-- conteudo da pagina principal -->
+
+
+    </div>
 
     </section>
         
@@ -38,4 +69,5 @@
     
 </body>
 <script src="../navbar/navbar.js"></script>
+<script src="../script.js"></script>
 </html>

@@ -19,7 +19,7 @@ body {
     column-gap: 10px;
     border: 1px solid red;
     display: grid;
-    grid-template-columns: 290px 880px 350px;
+    grid-template-columns: 290px 980px 350px;
     grid-template-areas: 
     'navegacao principal principal'
     'navegacao principal principal'
@@ -109,7 +109,8 @@ main{
     height: 100%;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow-y: auto; 
+    overflow-x: hidden; /* Evita scroll lateral se não precisar */
 }
 
 /*campo de pesquisa do conteudo*/
@@ -222,10 +223,175 @@ main .cardHome::-webkit-scrollbar-thumb {
 }
 
 
-/* */
+/* -- -- */
+
+/* cards da pagina de fila  */
+
+.main-card{
+    border: 1px solid rgb(255, 0, 183);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: start;
+    gap: 20px;
+    padding: 20px;
+    overflow-y: auto; 
+    overflow-x: hidden; /* Evita scroll lateral se não precisar */
+}
+
+/* Container Principal */
+
+.card-agendamento {
+    border: 1px solid rgb(143, 138, 138);
+    width: calc(25% - 20px);
+    min-width: 280px;
+    box-sizing: border-box;
+    background-color: #2625256e;
+    border-radius: 10px; /* Bordas bem arredondadas */
+    padding: 25px;
+    margin: 0;
+    /* Importante: define que o que sobrar de altura vira scroll */
+}
+
+/* Alinhamento do Topo */
+.header {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.nome {
+    margin: 0;
+    font-weight: 900;
+    font-size: 24px;
+   color: #f1960d;
+}
+
+.detalhes {
+    margin: 5px 0 0 0;
+    color: #fefefe;
+    font-size: 26px;
+}
+
+.horario {
+    color: #5df312; 
+    font-size: 26px;
+}
+
+.divisor {
+    border: 0;
+    border-top: 1px solid #6c6969;
+    margin: 20px 0;
+}
+
+/* Procedimentos e Valores */
+.label-titulo {
+    font-size: 11px;
+    color: #79ade1;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.item-linha, .total-linha {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.item-linha {
+    border-bottom: 1px solid #696868; /* Linha pontilhada do print */
+    padding-bottom: 10px;
+    color: #f0ebeb;
+    font-weight: bold;
+}
+
+.total-linha {
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+/* Botões */
+.acoes-principais {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.btn-cancelar {
+    flex: 1;
+    background-color: #c60707; /* Vermelho bem clarinho */
+    color: #f4f2f2;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.btn-finalizar {
+    flex: 1;
+    background-color: #069a66;
+    color: #fff;
+    padding: 15px;
+    border-radius: 15px;
+}
+.btn-reagendar{
+     width: 100%;
+    background-color: #0a81d1; /* Verde WhatsApp */
+    color: #fff;
+    padding: 15px;
+    border-radius: 15px;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+}
+.btn-whatsapp {
+    width: 100%;
+    background-color: #0fa84f88; /* Verde WhatsApp */
+    color: #fff;
+    padding: 15px;
+    border-radius: 15px;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+button:hover {
+    filter: brightness(0.9);
+}
 
 
-/* */
+
+
+
+/* estilo do scroll */
+main .card-agendamento::-webkit-scrollbar{
+    background-color: rgba(10, 74, 146, 0.199);   /* Usei o azul do seu botão */
+    border-radius: 10px;                   /* Arredonda as pontas */
+    border: 2px solid rgb(18, 19, 21);      /* Cria uma borda da cor do fundo para parecer que a barra flutua */
+}
+
+main .card-agendamento::-webkit-scrollbar-thumb {
+    background-color: rgb(33, 50, 69);   /* Usei o azul do seu botão */
+    border-radius: 5px;                   /* Arredonda as pontas */
+    border: 2px solid rgb(4, 10, 26);      /* Cria uma borda da cor do fundo para parecer que a barra flutua */
+}
+
 
 
 

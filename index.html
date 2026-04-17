@@ -15,8 +15,8 @@
 
     <main class="principal"><!-- onde contem o conteudo principal  -->
         <div class="pesquisa"><!-- campo de pesquisa da pagina -->
-            <form action="/search" method="GET"><!-- formulario de pesquisa -->
-                <input type="text" name="q" placeholder="Pesquisar..."><!--campo de persquisa-->
+            <form action="/search" method="GET" onsubmit="event.preventDefault()"><!-- formulario de pesquisa -->
+                 <input type="text" id="inputPesquisar" placeholder="pesquise por numero ou nome ou data.." oninput="filtrarCards()">
                 <button type="submit">Buscar</button><!-- botão para a ação -->
             </form><!-- -->
         </div><!-- -->
@@ -71,4 +71,5 @@
     
 </body>
 <script src="../navbar/navbar.js"></script>
+<script src="../script.js"></script>
 </html>
