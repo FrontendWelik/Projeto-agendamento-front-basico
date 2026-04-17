@@ -161,17 +161,51 @@ main .cardHome{
     border: 1px solid violet;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     gap: 20px; /* Melhor que space-evenly para listas longas */
-    padding: 20px 0;
+    padding: 20px 30px;
 }
 
-main .cardHome div{
+main .cardHome .cardFilho{
     flex-shrink: 0;/* Impede que o flexbox "esmague" a altura do card */
     width: 900px;
     height: 80px;
-    border: 1px solid red;
+    border: 1px solid rgba(0, 217, 255, 0.495);
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    border-radius: 10px;
+    padding: 0 30px; /* Espaçamento interno nas laterais */
+    margin-bottom: 10px; /* Espaço entre um card e outro */
 }
+
+/* Estilizando o conteúdo do meio para ele não ficar "colado" se crescer muito */
+main .cardHome .cardFilho div:not(.lixo) {
+    flex: 1;            /* Faz o conteúdo ocupar o espaço central */
+    text-align: center; /* Centraliza o texto no meio */
+}
+
+main .cardHome .cardFilho img {
+    width: 20px;       /* Tamanho fixo para os ícones */
+    height: auto;
+}
+
+main .cardHome .cardFilho .lixo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Efeito visual na lixeira */
+main .cardHome .cardFilho .lixo:hover {
+    transform: scale(1.5);
+    filter: brightness(1.5);
+}
+
+
+
 
 
 /* estilo do scroll */

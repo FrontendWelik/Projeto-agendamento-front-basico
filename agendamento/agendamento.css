@@ -13,16 +13,16 @@ body {
 
 /* estrutura grid Pai */
 .container{
-    max-width: 200vh;
-    height: 99vh;
+    max-width: 100vw;
+    height: 100vh;
     row-gap: 0px;
     column-gap: 10px;
     border: 1px solid red;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 290px 880px 350px;
     grid-template-areas: 
-    'navegacao principal card'
-    'navegacao principal card'
+    'navegacao principal principal'
+    'navegacao principal principal'
     ;
 }
 
