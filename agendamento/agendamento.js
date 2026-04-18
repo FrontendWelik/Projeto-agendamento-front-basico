@@ -78,11 +78,11 @@ function renderizarCards(listaParaExibir = null) {
     if (!containerCards) return;
 
     containerCards.innerHTML = "";
+
     let listaUsuarios = listaParaExibir || JSON.parse(localStorage.getItem("meuBanco")) || [];
 
     listaUsuarios.forEach((usuario, index) => {
-        // --- CONVERSÃO PARA MODELO BRASILEIRO ---
-        // Transforma "2026-04-17" em ["2026", "04", "17"] e inverte para "17/04/2026"
+        // Conversão da data para o modelo brasileiro
         const dataBr = usuario.data.split('-').reverse().join('/');
 
         const novoCard = document.createElement("div");
@@ -107,22 +107,17 @@ function renderizarCards(listaParaExibir = null) {
                 <strong>TOTAL</strong>
                 <strong>R$ ${usuario.preco}</strong>
             </div>
-            <div class="acoes-principais">
-                <button class="btn-cancelar" onclick="deletarCard(${index})">CANCELAR</button>
-                <button class="btn-finalizar">FINALIZAR</button>
+            
+            <div class="container-status">
+                <div class="status-fila">
+                    <i class="bi bi-clock-history"></i> ADICIONADO À FILA
+                </div>
             </div>
-             <button class="btn-reagendar">
-
-                 Reagendar
-
-            </button>
-            <button class="btn-whatsapp" onclick="enviarWhatsapp(${index})">
-            <i class="bi bi-whatsapp"></i> WHATSAPP
-            </button>
         `;
         containerCards.appendChild(novoCard);
     });
 }
+
 
 function deletarCard(index) {
     let listaUsuarios = JSON.parse(localStorage.getItem("meuBanco")) || [];

@@ -17,9 +17,8 @@ body {
     height: 100vh;
     row-gap: 0px;
     column-gap: 10px;
-    border: 1px solid red;
     display: grid;
-    grid-template-columns: 290px 980px 610px;
+    grid-template-columns: 295px 985px 610px;
     grid-template-areas: 
     'navegacao principal card'
     'navegacao principal card'
@@ -30,6 +29,9 @@ nav{ grid-area: navegacao;}
 main{ grid-area: principal;}
 .card{ grid-area: card;}
 
+main.principal{
+    border-right: 2px solid rgba(128, 128, 128, 0);
+}
 
 /*formulario de agendamento*/
 
@@ -122,7 +124,8 @@ input::-webkit-calendar-picker-indicator {
 /*pesquisa de cards agendamento*/
 
 .card{
-    border: 1px solid rgb(255, 0, 255);
+     border-left: 1px solid grey;
+    border-right:1px solid grey;
     grid-area: card;
     width: 100%;
     height: 100vh; /* Ocupa a altura da tela */
@@ -133,7 +136,7 @@ input::-webkit-calendar-picker-indicator {
 
 
 .pesquisa{
-    border: 1px solid blue;
+    border-bottom: 1px solid grey;
     padding: 20px;
     width: 100%;
 }
@@ -340,4 +343,37 @@ button:hover {
     background-color: rgb(33, 50, 69);   /* Usei o azul do seu botão */
     border-radius: 5px;                   /* Arredonda as pontas */
     border: 2px solid rgb(4, 10, 26);      /* Cria uma borda da cor do fundo para parecer que a barra flutua */
+}
+ 
+
+
+/*balãozinho*/
+/* Container para centralizar o balão */
+.container-status {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    width: 100%;
+}
+
+/* Estilo do balãozinho "Adicionado à Fila" */
+.status-fila {
+    background-color: #f39c12; /* Um tom de laranja/âmbar para indicar espera */
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 20px; /* Faz o formato de balão/pílula */
+    font-size: 0.85rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    animation: pulse 2s infinite; /* Efeito de pulsação suave */
+}
+
+/* Efeito opcional de pulsação para dar vida ao status */
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.9; }
+    100% { transform: scale(1); opacity: 1; }
 }

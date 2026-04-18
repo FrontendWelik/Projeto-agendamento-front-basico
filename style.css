@@ -17,9 +17,8 @@ body {
     height: 100vh;
     row-gap: 0px;
     column-gap: 10px;
-    border: 1px solid red;
     display: grid;
-    grid-template-columns: 290px 980px 350px;
+    grid-template-columns: 280px 995px 350px;
     grid-template-areas: 
     'navegacao principal principal'
     'navegacao principal principal'
@@ -36,8 +35,7 @@ main{ grid-area: principal;}
 
 nav{
     height: 100vh;
-    border: 1px solid blue;
-    border-right: 1px solid blue;
+    border-right: 2px solid rgb(106, 106, 109);
     display:flex;
     flex-direction: column;
 }
@@ -55,12 +53,9 @@ nav ul{
     justify-content: start;
     list-style: none;
     margin-top: 30px;
-    border: 1px solid green;
-
 }
 
 nav ul li{
-    border: 1px solid white;
     margin-top: 3px;
     width: 100%;
     cursor: pointer;
@@ -104,18 +99,23 @@ nav ul li:hover img{
 /* estrutura de conteudo principal*/
 
 main{
-    border: 1px solid rgb(229, 255, 0);
     width: 100%;
     height: 100%;
+    margin-right: 10px;
     display: flex;
     flex-direction: column;
     overflow-y: auto; 
     overflow-x: hidden; /* Evita scroll lateral se não precisar */
 }
 
+main.principal{
+    border-right: 2px solid grey;
+    margin-right: 50px;
+}
+
 /*campo de pesquisa do conteudo*/
 .pesquisa{
-    border: 1px solid blue;
+    border-bottom: 2px solid grey;
     padding: 20px;
     width: 100%;
 }
@@ -124,6 +124,7 @@ main .pesquisa form{
     display: flex;
     justify-content: flex-end;
     gap: 10px;
+    
 }
 
 main .pesquisa form input{
@@ -137,6 +138,7 @@ main .pesquisa form input{
     background-position: left 10px center;
      background-color: rgb(4, 10, 26);
      color: white;
+     
 }
 
 button{
@@ -146,6 +148,7 @@ button{
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    
 }
 
 
@@ -159,12 +162,12 @@ main .cardHome{
     overflow-y: auto; 
     overflow-x: hidden; /* Evita scroll lateral se não precisar */
     
-    border: 1px solid violet;
     display: flex;
     flex-direction: column;
     align-items: start;
     gap: 20px; /* Melhor que space-evenly para listas longas */
     padding: 20px 30px;
+    
 }
 
 main .cardHome .cardFilho{
@@ -228,7 +231,6 @@ main .cardHome::-webkit-scrollbar-thumb {
 /* cards da pagina de fila  */
 
 .main-card{
-    border: 1px solid rgb(255, 0, 183);
     width: 100%;
     height: 100%;
     display: flex;

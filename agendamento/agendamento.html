@@ -31,10 +31,10 @@
 
     <div class="input-group">
       <input type="text" placeholder="Procedimento" class="servico" id="procedimento">
-      <input type="number" placeholder="R$50" class="preco" id="preco">
+      <input type="number" placeholder="R$50" class="preco" id="preco" oninput="calcularTotalAutomatico()" required >
     </div>
 
-    <button type="button" id="adicionar">+ ADICIONAR SERVIÇO</button>
+    <button type="button" id="adicionar" onclick="adicionarNovoServico()">+ ADICIONAR SERVIÇO</button>
     <button type="submit" class="btn-agendar">AGENDAR</button>
   </form>
 </div>
@@ -69,5 +69,6 @@
     
 </body>
 <script src="../navbar/navbar.js"></script>
-<script src="../script.js"></script>
+<script src="agendamento.js"></script>
+
 </html>
