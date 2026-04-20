@@ -29,12 +29,14 @@
       <input type="time" id="hora">
     </div>
 
+    <div id="container-procedimentos">
     <div class="input-group">
-      <input type="text" placeholder="Procedimento" class="servico" id="procedimento">
-      <input type="number" placeholder="R$50" class="preco" id="preco" oninput="calcularTotalAutomatico()" required >
+      <input type="text" placeholder="Procedimento" class="servico">
+      <input type="number" placeholder="R$50" class="preco" oninput="calcularTotalAutomatico()" required>
     </div>
+</div>
 
-    <button type="button" id="adicionar" onclick="adicionarNovoServico()">+ ADICIONAR SERVIÇO</button>
+<button type="button" id="adicionar" onclick="adicionarNovoServico()">+ ADICIONAR SERVIÇO</button>
     <button type="submit" class="btn-agendar">AGENDAR</button>
   </form>
 </div>

@@ -394,5 +394,117 @@ main .card-agendamento::-webkit-scrollbar-thumb {
 
 
 
-/* */
+
+/* ============================================================
+   SEÇÃO NOVO: ESTILOS EXCLUSIVOS DA PÁGINA HOME
+   ============================================================ */
+
+
+   /*painel da data e hora*/ 
+
+
+/* Estilo Original do Painel de Status (Topo da Home) */
+/* DESIGN ORIGINAL - PRIMEIRA VERSÃO DO PAINEL */
+.painel-status {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.status-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.status-item .label {
+    font-size: 12px;
+    color: #f1960d;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.status-item .valor {
+    font-size: 22px;
+    color: #fbfcfa; /* Verde Neon */
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace; /* Toque de terminal */
+}
+
+/* Ajuste do layout principal para encaixar o painel */
+.principal {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(4, 10, 26); /* Fundo Geral */
+    min-height: 100vh;
+}
+
+
+
+
+/* Divisor de datas ajustado para o design atual */
+.divisor-data {
+    width: 100%;
+    margin: 30px 0 15px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 10px;
+}
+
+.divisor-data span {
+    /* Usando o cinza do seu formulário e a borda sutil que você já usa */
+    background-color: #19191d; 
+    color: #fefefe; /* Laranja dos títulos para dar destaque à data */
+    padding: 6px 18px;
+    border-radius: 8px; /* Borda menos redonda, seguindo seus inputs */
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 1px solid rgba(81, 99, 101, 0.5);
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+.divisor-data::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    /* Linha que desaparece suavemente, usando a cor cinza da sua borda */
+    background: linear-gradient(to right, rgba(81, 99, 101, 0.8), transparent);
+}
+
+
+
+/* Ajuste no info-cliente para acomodar a data pequena */
+.info-cliente-home {
+     max-width: 690px;
+     padding: 20px 180px;
+     height: 50px;
+    display: flex;
+    justify-content: space-around;
+   align-items: center;
+    margin-top: 2px;
+    opacity: 0.7;
+}
+
+
+.info-cliente-home h3{
+    color: #f1960d;
+    position: relative;
+    right: 180px;
+}
+
+.info-cliente-home small{
+    color: #f1960d;
+    position: relative;
+    left: 140px;
+}
+
 

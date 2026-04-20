@@ -76,10 +76,72 @@ main .formularioPai form input:focus {
 /* Grupos para colocar inputs lado a lado */
 .input-group {
   display: flex;
+  flex-wrap: wrap; /* Permite que os itens pulem de linha em telas menores */
   gap: 10px;
+  width: 100%;
 }
 
+
+
+
+
+.procedimentos-container {
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Espaço entre as linhas do recibo */
+}
+
+/* Linha individual: Serviço à esquerda, Preço à direita */
+.item-linha {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.item-linha span:first-child {
+    color: #b0b0b0; /* Cinza claro para o nome do serviço */
+    font-size: 14px;
+    text-transform: capitalize;
+}
+
+.item-linha span:last-child {
+    color: #ffffff; /* Branco para o preço */
+    font-weight: 500;
+    font-size: 14px;
+}
+
+/* Linha de Total em destaque (como na imagem) */
+.total-linha {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Linha divisória sutil */
+}
+
+.total-linha strong:first-child {
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.total-linha strong:last-child {
+    font-size: 18px;
+    color: #ffffff; /* Ou use a cor verde #5df312 se quiser destaque */
+}
+
+
+
+
+
+
+
+
 .input-group input {
+    display: flex;
   flex: 1; /* Faz os inputs dividirem o espaço */
 }
 
