@@ -48,6 +48,18 @@ const navHTML = `
 document.getElementById('navbar').innerHTML = navHTML;
 
 
+// Lógica para marcar a página ativa
+const links = document.querySelectorAll('nav ul li a');
+const currentPath = window.location.pathname;
+
+links.forEach(link => {
+    // Verifica se o caminho atual termina com o href do link
+    // O use de .includes() ajuda a identificar a página mesmo com caminhos relativos
+    if (currentPath.includes(link.getAttribute('href').replace('..', ''))) {
+        link.parentElement.classList.add('ativo');
+    }
+});
+
 
 // Seleciona todas as LIs dentro da navegação
 const menuItems = document.querySelectorAll('nav ul li');

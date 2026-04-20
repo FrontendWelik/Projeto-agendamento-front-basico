@@ -18,7 +18,7 @@ body {
     row-gap: 0px;
     column-gap: 10px;
     display: grid;
-    grid-template-columns: 295px 985px 610px;
+    grid-template-columns: 280px 985px 610px;
     grid-template-areas: 
     'navegacao principal card'
     'navegacao principal card'
@@ -170,7 +170,37 @@ button{
 }
 
 
-/*estilo cards*/
+/*botão x card*/
+
+/* Faz o card ser a referência para o botão posicionado */
+.card-agendamento {
+    position: relative; 
+}
+
+/* Estilo do botão de fechar (X) */
+.btn-ocultar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 0, 0, 0.1);
+    color: #ff4d4d;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-ocultar:hover {
+    background: #ff4d4d;
+    color: white;
+}
 
 
 /* cards do conteudo principal home */
