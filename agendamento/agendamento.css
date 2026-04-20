@@ -137,11 +137,7 @@ main .formularioPai form input:focus {
 
 
 
-
-
-
 .input-group input {
-    display: flex;
   flex: 1; /* Faz os inputs dividirem o espaço */
 }
 
