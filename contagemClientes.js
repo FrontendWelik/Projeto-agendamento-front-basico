@@ -33,7 +33,7 @@ function renderizarHome(listaParaExibir = null) {
     let lista = listaParaExibir || JSON.parse(localStorage.getItem("meuBanco")) || [];
 
     // 1. Filtra os ativos e ORDENA por data e hora para não ficarem misturados
-    const ativos = lista.filter(u => !u.oculto).sort((a, b) => {
+    const ativos = lista.filter(u => !u.finalizado && !u.cancelado).sort((a, b) => {
         return new Date(a.data + 'T' + a.hora) - new Date(b.data + 'T' + b.hora);
     });
 
