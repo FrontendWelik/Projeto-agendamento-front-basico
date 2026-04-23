@@ -41,7 +41,7 @@ const navHTML = `
                 </li>
 
                 <li>
-                    <img src="../icones/exit.png" alt="">
+                    <img src="../icones/grafico-de-barras.png" alt="">
                     <a href="../metas/metas.html">Metas</a>
                 </li>
             </ul>
