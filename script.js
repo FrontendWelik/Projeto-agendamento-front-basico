@@ -97,3 +97,18 @@ function enviarWhatsapp(index) {
     let mensagem = `Olá ${usuario.nome}, confirmamos seu agendamento para o dia ${usuario.data.split('-').reverse().join('/')} às ${usuario.hora}h.`;
     window.open(`https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`, '_blank');
 }
+
+
+// Adicione ao final do seu script.js
+function filtrarCards() {
+    const termo = document.getElementById("inputPesquisar").value.toLowerCase();
+    const lista = JSON.parse(localStorage.getItem("meuBanco")) || [];
+
+    const filtrados = lista.filter(u => {
+        const correspondeNome = u.nome.toLowerCase().includes(termo);
+        const estaNaFila = !u.finalizado && !u.cancelado;
+        return correspondeNome && estaNaFila;
+    });
+
+    renderizarCards(filtrados);
+}

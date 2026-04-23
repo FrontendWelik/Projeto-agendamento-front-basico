@@ -1,0 +1,84 @@
+/* Container que permite cards lado a lado e scroll */
+main .cardHistorico {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap; /* Faz cair para a linha de baixo */
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* O Card com o estilo idêntico ao da Home */
+.cardFilhoHistorico {
+    width: 320px; /* Largura fixa para o estilo de card */
+    height: 220px;
+    background-color: #19191d;
+    border: 1px solid rgba(241, 195, 13, 0.3); /* Borda laranja sutil */
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+/* Título igual à Home */
+.cardFilho h3 {
+    color: #f1960d;
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Seção de procedimentos e preços */
+.lista-procedimentos {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 10px;
+    margin-bottom: 15px;
+}
+
+.item-servico {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #b0b0b0;
+    margin-bottom: 6px;
+}
+
+/* Rodapé do card com Data e Valor Total */
+.footer-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 10px;
+}
+
+.footer-card .data {
+    font-size: 13px;
+    color: #79ade1;
+}
+
+.footer-card .total {
+    font-size: 18px;
+    color: #5df312;
+    font-weight: bold;
+}
+
+/* Ícone de lixeira no centro inferior */
+.lixo-historico {
+    text-align: center;
+    margin-top: 15px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+.lixo-historico:hover {
+    opacity: 1;
+    transform: scale(1.2);
+}
