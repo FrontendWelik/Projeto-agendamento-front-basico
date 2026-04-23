@@ -1,0 +1,66 @@
+.grid-configuracoes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+    padding: 30px;
+}
+
+.card-config {
+    background: rgba(25, 25, 29, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.card-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding-bottom: 10px;
+}
+
+.card-head i { color: #f1960d; font-size: 20px; }
+
+.campo-grupo { margin-bottom: 20px; }
+
+.campo-grupo label { display: block; font-size: 12px; margin-bottom: 8px; color: #79ade1; font-weight: bold; }
+
+.campo-grupo input {
+    width: 100%;
+    background: #040a1a;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+/* Switches para as regras de negócio */
+.switch-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.btn-acao {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+.primario { background: #f1960d; color: #000; }
+.secundario { background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.1); }
+.perigo { background: rgba(231, 76, 60, 0.2); color: #e74c3c; border: 1px solid #e74c3c; }
+.ghost { background: transparent; color: #aaa; }

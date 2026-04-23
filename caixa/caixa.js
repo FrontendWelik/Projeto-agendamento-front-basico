@@ -1,3 +1,4 @@
+
 let dataRelatorio = new Date(); // Inicia na data atual
 
 window.onload = function() {

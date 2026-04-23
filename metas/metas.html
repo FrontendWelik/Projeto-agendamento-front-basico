@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="metas.css">
+    <title>Metas e Performance</title>
+</head>
+<body>
+    <section class="container">
+        <div id="navbar"></div>
+
+        <main class="principal">
+            <header class="metas-header">
+                <div>
+                    <h1>PERFORMANCE MENSAL</h1>
+                    <p id="periodoAtual">Carregando período...</p>
+                </div>
+                <div class="meta-form-container">
+                    <div class="inputs-row">
+                        <input type="number" id="inputMeta" placeholder="Valor R$">
+                        <input type="date" id="inputPrazo">
+                    </div>
+                    <button class="btn-definir" onclick="definirNovaMeta()">DEFINIR META</button>
+                </div>
+            </header>
+
+            <div id="bannerMetaContainer"></div>
+
+            <div class="cards-resumo">
+                <div class="card-metrica">
+                    <span class="label">ALCANÇADO</span>
+                    <span class="valor" id="valorAlcancado">R$ 0,00</span>
+                    <div class="barra-progresso"><div id="progressoPreenchimento"></div></div>
+                </div>
+                <div class="card-metrica">
+                    <span class="label">CANCELAMENTOS</span>
+                    <span class="valor" id="valorCancelado" style="color: #e74c3c;">R$ 0,00</span>
+                </div>
+                <div class="card-metrica">
+                    <span class="label">PENDENTE (META)</span>
+                    <span class="valor" id="valorPendente">R$ 0,00</span>
+                </div>
+            </div>
+
+            <div class="tabela-container">
+                <table class="tabela-metas">
+                    <thead>
+                        <tr>
+                            <th>Métrica</th>
+                            <th>Quantidade</th>
+                            <th>Total Bruto</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpoTabela">
+                        </tbody>
+                </table>
+            </div>
+        </main>
+    </section>
+
+    <script src="../navbar/navbar.js"></script>
+    <script src="meta.js"></script>
+</body>
+</html>

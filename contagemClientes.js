@@ -18,10 +18,13 @@ function atualizarPainelStatus() {
     const agora = new Date();
     const hojeFormatado = agora.toLocaleDateString('pt-BR');
 
-    // Filtra apenas os que não estão ocultos e são de hoje
-    const ativosHoje = lista.filter(u => !u.oculto);
+    // AJUSTE AQUI: Filtra apenas os clientes que:
+    // 1. Não estão ocultos
+    // 2. NÃO foram finalizados
+    // 3. NÃO foram cancelados
+    const ativosRealmente = lista.filter(u => !u.oculto && !u.finalizado && !u.cancelado);
 
-    document.getElementById("totalClientes").innerText = ativosHoje.length;
+    document.getElementById("totalClientes").innerText = ativosRealmente.length;
     document.getElementById("dataAtual").innerText = hojeFormatado;
 }
 
@@ -33,7 +36,7 @@ function renderizarHome(listaParaExibir = null) {
     let lista = listaParaExibir || JSON.parse(localStorage.getItem("meuBanco")) || [];
     const hoje = new Date().toISOString().split('T')[0];
 
-    // 1. Filtra os ativos (não finalizados/cancelados) e ORDENA por data e hora
+    // Filtra os ativos (não finalizados/cancelados) e ORDENA por data e hora
     const ativos = lista.filter(u => !u.finalizado && !u.cancelado).sort((a, b) => {
         const dataA = a.data + a.hora;
         const dataB = b.data + b.hora;
@@ -43,7 +46,6 @@ function renderizarHome(listaParaExibir = null) {
     let ultimaDataRenderizada = "";
 
     ativos.forEach((usuario) => {
-        // 2. Divisor de Data (Mantendo sua organização por dia)
         if (usuario.data !== ultimaDataRenderizada) {
             const dataExibicao = usuario.data === hoje ? "HOJE" : usuario.data.split('-').reverse().join('/');
             
@@ -55,11 +57,9 @@ function renderizarHome(listaParaExibir = null) {
             ultimaDataRenderizada = usuario.data;
         }
 
-        // 3. Novo Design do Card (Igual ao Temporário, sem preços)
         const card = document.createElement("div");
-        card.className = "card-agendamento"; // Usando a mesma classe da Fila/Temporário
+        card.className = "card-agendamento"; 
         
-        // Formata os procedimentos em lista simples (sem o valor R$)
         const htmlProcedimentos = usuario.servicos ? 
             usuario.servicos.map(s => `
                 <div style="margin-bottom: 3px; color: #b0b0b0; font-size: 14px;">
@@ -91,9 +91,6 @@ function renderizarHome(listaParaExibir = null) {
     });
 }
 
-
-
-// Adicione ao final do seu contagemClientes.js
 function filtrarHome() {
     const termo = document.getElementById("inputPesquisar").value.toLowerCase();
     const lista = JSON.parse(localStorage.getItem("meuBanco")) || [];
@@ -105,4 +102,21 @@ function filtrarHome() {
     });
 
     renderizarHome(filtrados);
+}
+
+// Função para deletar que também atualiza o contador imediatamente
+function apagarDaHome(id) {
+    if(confirm("Deseja cancelar este agendamento?")) {
+        let lista = JSON.parse(localStorage.getItem("meuBanco")) || [];
+        const index = lista.findIndex(u => u.id === id);
+        
+        if (index !== -1) {
+            lista[index].cancelado = true; // Marca como cancelado
+            localStorage.setItem("meuBanco", JSON.stringify(lista));
+            
+            // Recarrega a tela e o contador
+            renderizarHome();
+            atualizarPainelStatus();
+        }
+    }
 }

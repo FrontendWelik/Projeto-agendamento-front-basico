@@ -1,3 +1,6 @@
+
+
+
 const navHTML = `
 <nav>
             <h1>Agendamento Online</h1>
@@ -32,14 +35,14 @@ const navHTML = `
                     <a href="../caixa/caixa.html">Caixa</a>
                 </li>
 
-                <li class="baixo">
+                <li>
                     <img src="../icones/gear.png" alt="">
-                    <a href="../configuracao/configuracao.html">Configuração</a>
+                    <a href="../config/config.html">Configuração</a>
                 </li>
 
-                <li class="baixo">
+                <li>
                     <img src="../icones/exit.png" alt="">
-                    <a href="#">Sair</a>
+                    <a href="../metas/metas.html">Metas</a>
                 </li>
             </ul>
         </nav>

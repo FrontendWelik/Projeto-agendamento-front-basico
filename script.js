@@ -1,3 +1,4 @@
+
 window.onload = function() {
     const hoje = new Date().toISOString().split("T")[0];
     const campoData = document.getElementById("data");
@@ -98,17 +99,23 @@ function enviarWhatsapp(index) {
     window.open(`https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`, '_blank');
 }
 
-
-// Adicione ao final do seu script.js
+// Adicione este bloco ao final do arquivo script.js
 function filtrarCards() {
+    // 1. Captura o termo digitado (converte para minúsculo para facilitar a busca)
     const termo = document.getElementById("inputPesquisar").value.toLowerCase();
-    const lista = JSON.parse(localStorage.getItem("meuBanco")) || [];
+    
+    // 2. Aceder ao banco de dados local
+    const listaUsuarios = JSON.parse(localStorage.getItem("meuBanco")) || [];
 
-    const filtrados = lista.filter(u => {
+    // 3. Filtrar a lista
+    const filtrados = listaUsuarios.filter(u => {
         const correspondeNome = u.nome.toLowerCase().includes(termo);
-        const estaNaFila = !u.finalizado && !u.cancelado;
+        // Garante que a pesquisa só mostre quem ainda está na fila (não finalizados e não cancelados)
+        const estaNaFila = u.finalizado !== true && u.cancelado !== true;
+        
         return correspondeNome && estaNaFila;
     });
 
+    // 4. Reutiliza a sua função de renderizar para atualizar a tela com o filtro
     renderizarCards(filtrados);
 }
