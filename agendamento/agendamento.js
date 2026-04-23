@@ -75,13 +75,30 @@ function renderizarCards(listaParaExibir = null) {
     const agora = new Date().getTime();
 
     listaUsuarios.forEach((usuario) => {
-        // Se clicar no X, oculta apenas nesta página
+        // Mantém suas regras de ocultar e tempo de 24h
         if (!listaParaExibir && usuario.oculto === true) return;
-        // Filtro de 24h para o card temporário não ficar poluído
         if (!listaParaExibir && (agora - usuario.id > 86400000)) return;
 
         const novoCard = document.createElement("div");
         novoCard.className = "card-agendamento";
+
+        // --- LÓGICA DE STATUS (CONVERSA ENTRE AS PÁGINAS) ---
+        let textoStatus = "ADICIONADO À FILA";
+        let corStatus = "#f39c12"; // Laranja original
+        let iconeStatus = "bi-clock-history";
+
+        if (usuario.finalizado === true) {
+            textoStatus = "ATENDIMENTO FINALIZADO";
+            corStatus = "#27ae60"; // Verde
+            iconeStatus = "bi-check-circle-fill";
+            novoCard.style.border = "2px solid #27ae60";
+        } else if (usuario.cancelado === true) {
+            textoStatus = "AGENDAMENTO CANCELADO";
+            corStatus = "#e74c3c"; // Vermelho
+            iconeStatus = "bi-x-circle-fill";
+            novoCard.style.border = "2px solid #e74c3c";
+        }
+        // ---------------------------------------------------
 
         let htmlServicos = usuario.servicos.map(s => `
             <div class="item-linha" style="display: flex; justify-content: space-between; margin-bottom: 5px;">
@@ -107,14 +124,19 @@ function renderizarCards(listaParaExibir = null) {
                 <strong style="color: #5df312; font-size: 20px;">R$ ${usuario.preco.replace('.', ',')}</strong>
             </div>            
             <div class="container-status" style="margin-top: 20px; display: flex; justify-content: center;">
-                <div class="status-fila" style="background-color: #f39c12; color: white; width: 100%; padding: 12px; border-radius: 25px; text-align: center; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 8px;">
-                    <i class="bi bi-clock-history"></i> ADICIONADO À FILA
+                <div class="status-fila" style="background-color: ${corStatus}; color: white; width: 100%; padding: 12px; border-radius: 25px; text-align: center; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                    <i class="bi ${iconeStatus}"></i> ${textoStatus}
                 </div>
             </div>
         `;
         containerCards.appendChild(novoCard);
     });
 }
+
+
+
+
+
 
 function ocultarCard(id) {
     let listaUsuarios = JSON.parse(localStorage.getItem("meuBanco")) || [];
