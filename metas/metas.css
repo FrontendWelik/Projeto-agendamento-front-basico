@@ -117,3 +117,46 @@
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+/* ============================================================
+   RESPONSIVIDADE (MOBILE)
+   ============================================================ */
+
+@media (max-width: 768px) {
+    .metas-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .inputs-row {
+        flex-direction: column;
+    }
+
+    .meta-form-container input, .btn-definir {
+        width: 100%;
+    }
+
+    .cards-resumo {
+        grid-template-columns: 1fr; /* Um card por linha no celular */
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .banner-meta {
+        margin: 0 20px 15px 20px;
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .tabela-container {
+        padding: 0 20px 20px 20px;
+        overflow-x: auto; /* Permite scroll lateral na tabela se necessário */
+    }
+
+    .tabela-metas {
+        min-width: 600px; /* Garante que a tabela não esmague os dados */
+    }
+}

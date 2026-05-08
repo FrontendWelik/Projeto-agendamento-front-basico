@@ -465,3 +465,58 @@ button:hover {
     50% { transform: scale(1.05); opacity: 0.9; }
     100% { transform: scale(1); opacity: 1; }
 }
+
+/* ============================================================
+   ADICIONADO: RESPONSIVIDADE (MOBILE)
+   ============================================================ */
+
+@media (max-width: 1024px) {
+    .container {
+        grid-template-columns: 1fr; /* Muda para uma única coluna */
+        grid-template-areas: 
+        "navegacao"
+        "principal"
+        "card";
+        height: auto;
+        overflow-x: hidden;
+    }
+
+    /* Menu Lateral vira menu superior ou empilhado */
+    nav {
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid grey;
+    }
+
+    /* Ajuste do Form de Agendamento */
+    main .formularioPai form {
+        width: 90%; /* Ocupa a largura da tela mobile */
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    main .formularioPai h2 {
+        margin-left: 20px;
+        text-align: center;
+    }
+
+    /* Ajuste da Área de Cards/Fila */
+    .card {
+        height: auto; /* Deixa crescer conforme o conteúdo */
+        border-left: none;
+        border-right: none;
+    }
+
+    .card .pesquisa form input {
+        width: 100%; /* Input de pesquisa ocupa tudo */
+    }
+
+    .card-agendamento {
+        width: 95%; /* Cards da fila ocupam quase toda a largura */
+    }
+
+    /* Garante que o scroll do Grid não quebre */
+    #card.main-card {
+        height: 600px; /* Altura fixa para permitir scroll interno na fila mobile */
+    }
+}

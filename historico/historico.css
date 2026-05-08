@@ -82,3 +82,26 @@ main .cardHistorico {
     opacity: 1;
     transform: scale(1.2);
 }
+
+/* ============================================================
+   RESPONSIVIDADE (MOBILE)
+   ============================================================ */
+
+@media (max-width: 480px) {
+    main .cardHistorico {
+        padding: 15px;
+        justify-content: center; /* Centraliza o card no mobile */
+    }
+
+    .cardFilhoHistorico {
+        width: 100%;       /* O card ocupa a largura total da tela */
+        height: auto;      /* Permite que o card cresça se houver muitos serviços */
+        min-height: 220px;
+    }
+
+    .footer-card {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+}

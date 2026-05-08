@@ -1,0 +1,188 @@
+/* mobile-style.css */
+
+@media (max-width: 1024px) {
+    
+    /* 1. Reset do Container Principal para não espremer o conteúdo */
+    .container {
+        display: flex !important;
+        flex-direction: column !important;
+        height: auto !important;
+        width: 100% !important;
+        overflow-x: hidden !important;
+        border-right: none;
+        
+    }
+
+    /* 2. Correção Crítica do Formulário */
+    main .formularioPai {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        padding: 10px !important;
+        
+    }
+
+    main .formularioPai form {
+        width: 92% !important; /* Ajusta à largura da tela do celular */
+        max-width: 100% !important; /* Remove o limite de 550px */
+        margin: 10px auto !important; /* Centraliza e remove margens laterais fixas */
+        position: static !important; /* Garante que não esteja flutuando */
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    /* 3. Ajuste de Título que estava empurrando tudo */
+    main .formularioPai h2 {
+        margin-left: 0 !important;
+        width: 100% !important;
+        text-align: center !important;
+        padding: 0 !important;
+    }
+
+    /* 4. Faz os campos Nome/Telefone/Preço ficarem um em cima do outro */
+    .input-group {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 10px !important;
+        
+    }
+
+    main .formularioPai form input, 
+    .input-group input, 
+    .input-group .preco {
+        width: 100% !important; /* Ocupa toda a largura do form */
+        flex: none !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 5. Ajuste dos cards de agendamento (Fila) */
+    .card-agendamento {
+        width: 95% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+
+    /* Reorganização do Grid Original */
+    .container {
+        grid-template-columns: 1fr !important;
+        grid-template-areas: 
+            'navegacao'
+            'principal' !important;
+        height: auto !important;
+        overflow-x: hidden;
+    }
+
+    /* Transformando a Nav original em Menu Mobile */
+    nav {
+        height: 120px !important;
+        width: 100% !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        background-color: rgb(4, 10, 26);
+        border-right: none !important;
+        border-bottom: 1px solid rgb(106, 106, 109);
+        flex-direction: row !important;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+    nav h1{
+        padding: 20px;
+    }
+
+    /* Escondendo a lista por padrão (Menu Fechado) */
+    nav ul {
+        display: none !important; 
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 60px);
+        background-color: rgb(4, 10, 26);
+        flex-direction: column !important;
+        margin-top: 0 !important;
+        padding: 20px;
+    }
+
+    /* Classe que o JS vai usar para abrir o menu */
+    nav.menu-aberto ul {
+        display: flex !important;
+    }
+
+    nav ul li.baixo {
+        top: 0 !important; /* Reseta o posicionamento fixo do desktop */
+    }
+
+    /* Ícone Hambúrguer (criado via JS) */
+    .btn-hamburguer {
+        display: block;
+        font-size: 30px;
+        color: white;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    /* Ajuste do Main */
+    main.principal {
+        margin-top: 70px; /* Espaço para a nav fixa */
+        margin-right: 0 !important;
+        border-right: none !important;
+        width: 100% !important;
+        padding: 10px;
+    }
+
+    /* Painel de Status Mobile */
+    .painel-status {
+        flex-wrap: wrap !important;
+        gap: 15px;
+        position: static !important;
+    }
+
+    .status-item .valor {
+        font-size: 18px !important;
+    }
+
+    /* Ajuste do Formulário de Pesquisa */
+    main .pesquisa form {
+        flex-direction: column !important;
+        align-items: center;
+    }
+
+    main .pesquisa form input {
+        width: 100% !important;
+        padding-left: 45px !important;
+    }
+
+    /* Ajuste dos Cards na Home */
+    main .cardHome {
+        padding: 10px !important;
+        justify-content: center;
+    }
+
+    /* Forçando os cards a ocuparem a largura total sem quebrar */
+    .card-agendamento {
+        width: 100% !important;
+        min-width: 100% !important;
+        margin-bottom: 15px;
+    }
+
+    /* Divisor de data mobile */
+    .divisor-data {
+        justify-content: center;
+        padding-left: 0 !important;
+    }
+}
+
+/* Ocultar hambúrguer no desktop */
+@media (min-width: 1025px) {
+    .btn-hamburguer {
+        display: none;
+    }
+}
+

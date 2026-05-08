@@ -509,4 +509,87 @@ main .card-agendamento::-webkit-scrollbar-thumb {
     left: 140px;
 }
 
+/* ============================================================
+   RESPONSIVIDADE (MOBILE)
+   ============================================================ */
 
+@media (max-width: 768px) {
+    /* Ajuste do Grid para uma única coluna */
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            'navegacao'
+            'principal';
+        height: auto;
+    }
+
+    /* Navegação horizontal no topo ou oculta */
+    nav {
+        height: auto;
+        border-right: none;
+        border-bottom: 2px solid rgb(106, 106, 109);
+    }
+
+    nav ul {
+        flex-direction: row;
+        margin-top: 10px;
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+
+    nav ul li.baixo {
+        top: 0; /* Remove o deslocamento fixo no mobile */
+    }
+
+    /* Ajuste do Campo de Pesquisa */
+    main .pesquisa form {
+        flex-direction: column;
+    }
+
+    main .pesquisa form input {
+        width: 100%; /* Ocupa a largura total no mobile */
+    }
+
+    /* Ajuste dos Cards da Home */
+    main .cardHome .cardFilho {
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        padding: 20px;
+        gap: 10px;
+        text-align: center;
+    }
+
+    main .cardHome .cardFilho div:not(.lixo) {
+        text-align: center;
+    }
+
+    /* Ajuste dos Cards de Agendamento (Fila) */
+    .card-agendamento {
+        width: 100%;
+        min-width: 100%;
+    }
+
+    /* Ajuste do Painel de Status */
+    .painel-status {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    /* Ajuste de Margens e Paddings Gerais */
+    main.principal {
+        margin-right: 0;
+        border-right: none;
+    }
+
+    .info-cliente-home {
+        padding: 10px;
+        flex-direction: column;
+        height: auto;
+    }
+
+    .info-cliente-home h3, 
+    .info-cliente-home small {
+        position: static; /* Remove o posicionamento relativo */
+    }
+}

@@ -508,4 +508,72 @@ main .card-agendamento::-webkit-scrollbar-thumb {
     left: 140px;
 }
 
+/* ============================================================
+   SEÇÃO DE RESPONSIVIDADE (MOBILE)
+   ============================================================ */
 
+@media (max-width: 1024px) {
+    .container {
+        grid-template-columns: 1fr; /* Coluna única */
+        grid-template-areas: 
+        'navegacao'
+        'principal';
+        height: auto;
+    }
+
+    nav {
+        height: auto;
+        border-right: none;
+        border-bottom: 2px solid rgb(106, 106, 109);
+    }
+
+    nav ul {
+        flex-direction: row;
+        overflow-x: auto;
+        margin-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    nav ul li.baixo {
+        top: 0;
+    }
+
+    main.principal {
+        margin-right: 0;
+        border-right: none;
+    }
+
+    main .pesquisa form {
+        justify-content: center;
+    }
+
+    main .pesquisa form input {
+        width: 100%;
+    }
+
+    main .cardHome .cardFilho {
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .info-cliente-home {
+        max-width: 100%;
+        padding: 10px;
+        flex-direction: column;
+        height: auto;
+        gap: 5px;
+    }
+
+    .info-cliente-home h3, .info-cliente-home small {
+        position: static;
+        right: 0;
+        left: 0;
+    }
+
+    .card-agendamento {
+        width: 100%;
+    }
+}
