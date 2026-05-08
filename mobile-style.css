@@ -130,11 +130,22 @@
 
     /* Ajuste do Main */
     main.principal {
-        margin-top: 70px; /* Espaço para a nav fixa */
+        margin-top: 110px; /* Espaço para a nav fixa */
         margin-right: 0 !important;
         border-right: none !important;
+        border: none !important;
         width: 100% !important;
         padding: 10px;
+
+    }
+    main.principal, 
+    nav, 
+    section {
+        border-right: none !important;
+        border-left: none !important;
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+        width: 100% !important;
     }
 
     /* Painel de Status Mobile */
@@ -150,13 +161,15 @@
 
     /* Ajuste do Formulário de Pesquisa */
     main .pesquisa form {
-        flex-direction: column !important;
-        align-items: center;
+        display: none;
     }
 
     main .pesquisa form input {
         width: 100% !important;
         padding-left: 45px !important;
+    }
+    .pesquisa{
+        display: none;
     }
 
     /* Ajuste dos Cards na Home */
@@ -178,6 +191,115 @@
         padding-left: 0 !important;
     }
 }
+
+/* 1. Ajuste do Container de Cards/Metas */
+    #card.main-card, 
+    .cardHome {
+        display: flex !important;
+        flex-direction: column !important; /* Empilha um embaixo do outro */
+        align-items: center !important;
+        width: 100% !important;
+        padding: 10px !important;
+        gap: 15px !important;
+        overflow-x: hidden !important;
+    }
+
+    /* 2. Faz o Card individual ocupar a largura da tela */
+    .card-agendamento, 
+    .cardFilho {
+        width: 95% !important; /* Quase 100% para dar um respiro nas bordas */
+        min-width: 0 !important; /* Remove travas de largura mínima */
+        margin: 0 auto !important;
+        padding: 15px !important;
+        height: auto !important; /* Deixa o card crescer conforme o texto */
+    }
+
+    /* 3. Ajuste dos textos dentro dos cards para não vazar */
+    .card-agendamento .nome, 
+    .card-agendamento .detalhes {
+        font-size: 18px !important; /* Diminui um pouco a fonte no celular */
+        word-wrap: break-word; /* Quebra palavras muito grandes */
+    }
+
+    /* 4. Botões dos cards em coluna para facilitar o toque */
+    .acoes-principais {
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 10px !important;
+    }
+
+    .btn-cancelar, .btn-finalizar, .btn-reagendar, .btn-whatsapp {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 12px !important;
+    }
+    .btn-whatsapp{
+        margin-top: 15px !important;
+    }
+
+    /* 5. Se houver metas de progresso ou porcentagem */
+    .status-item {
+        width: 100% !important;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        padding-bottom: 10px;
+    }
+
+    /* divisão*/
+/* 1. O Pulo do Gato: Forçar o container a nunca passar da tela */
+    .tabela-container {
+        width: 100% !important;
+        max-width: 100vw !important; /* Limita à largura da visão do celular */
+        padding: 10px !important;
+        margin: 0 !important;
+        overflow-x: hidden !important; /* Corta qualquer sobra lateral */
+        display: block !important;
+    }
+
+    /* 2. Ajuste do card da tabela */
+    .tabela-metas {
+        width: 100% !important;
+        margin: 0 auto !important;
+        display: block !important;
+        border: none !important;
+    }
+
+    /* 3. Garante que as linhas (tr) não estiquem */
+    .tabela-metas tr {
+        display: block !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        margin-bottom: 15px;
+        background-color: #1d1d19; /* Cor escura para combinar com seu tema */
+        border-radius: 8px;
+        border: 1px solid rgba(241, 150, 13, 0.2);
+    }
+
+    /* 4. Ajuste das células para não vazar */
+    .tabela-metas td {
+        display: flex !important; /* Usar flex facilita o alinhamento texto/valor */
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+        padding: 12px 15px !important;
+        text-align: right !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 5. Remove o posicionamento absoluto que pode estar empurrando o layout */
+    .tabela-metas td::before {
+        content: attr(data-label); /* Se você usou data-label */
+        position: static !important; 
+        font-weight: bold;
+        color: #f1960d;
+        margin-right: 10px;
+    }
+
+.tabela-metas td:nth-of-type(1)::before { content: "Métrica:"; }
+.tabela-metas td:nth-of-type(2)::before { content: "Quantidade:"; }
+.tabela-metas td:nth-of-type(3)::before { content: "Total:"; }
+.tabela-metas td:nth-of-type(4)::before { content: "Status:"; }
+
 
 /* Ocultar hambúrguer no desktop */
 @media (min-width: 1025px) {
